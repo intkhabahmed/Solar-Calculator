@@ -1,4 +1,15 @@
 <resources>
     <string name="app_name">Solar Calculator</string>
     <string name="title_activity_maps">Map</string>
+    <string name="sun">Sun icon</string>
+    <string name="moon">Moon icon</string>
+    <string name="moon_rise">moon rise</string>
+    <string name="sun_rise">sun rise</string>
+    <string name="sun_set">sun set</string>
+    <string name="moon_set">moon set</string>
+    <string name="previous_date_button">select previous date</string>
+    <string name="reset_date">reset date to current</string>
+    <string name="next_date_button">select next date</string>
+    <string name="save_pin">Save Pin</string>
+    <string name="saved_pins">Saved Pins</string>
 </resources>
