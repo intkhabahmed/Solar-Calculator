@@ -1,229 +1,232 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".ui.MapsActivity">
-
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?android:attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:title="@string/app_name"
-        app:titleTextColor="@android:color/white">
-
-    </android.support.v7.widget.Toolbar>
-
-    <fragment
-        android:id="@+id/map"
-        android:name="com.google.android.gms.maps.SupportMapFragment"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/data_container"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+    xmlns:tools="http://schemas.android.com/tools">
 
     <android.support.constraint.ConstraintLayout
-        android:id="@+id/data_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.MapsActivity">
 
-        <android.support.v7.widget.AppCompatImageView
-            android:id="@+id/sun_icon_iv"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="8dp"
-            android:contentDescription="@string/sun"
-            app:layout_constraintEnd_toStartOf="@+id/sun_rise_iv"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintHorizontal_chainStyle="spread"
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_wb_sunny_black_24dp" />
+            app:title="@string/app_name"
+            app:titleTextColor="@android:color/white">
 
-        <android.support.v7.widget.AppCompatImageView
-            android:id="@+id/moon_icon_iv"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="8dp"
-            android:contentDescription="@string/moon"
-            android:padding="4dp"
-            app:layout_constraintEnd_toStartOf="@+id/moon_rise_iv"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintHorizontal_chainStyle="spread"
+        </android.support.v7.widget.Toolbar>
+
+        <fragment
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/data_container"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/sun_icon_iv"
-            app:srcCompat="@drawable/ic_moon_phase_outline" />
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
-        <android.support.v7.widget.AppCompatImageView
-            android:id="@+id/sun_rise_iv"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:contentDescription="@string/sun_rise"
-            android:tint="#FF9700"
-            app:layout_constraintBottom_toTopOf="@+id/sun_icon_iv"
-            app:layout_constraintEnd_toStartOf="@+id/sun_rise_time_tv"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/sun_icon_iv"
-            app:layout_constraintTop_toBottomOf="@+id/sun_icon_iv"
-            app:srcCompat="@drawable/ic_arrow_upward_black_24dp" />
-
-        <android.support.v7.widget.AppCompatImageView
-            android:id="@+id/moon_rise_iv"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:contentDescription="@string/moon_rise"
-            android:tint="#007ff5"
-            app:layout_constraintBottom_toTopOf="@+id/moon_icon_iv"
-            app:layout_constraintEnd_toStartOf="@+id/moon_rise_tv"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/moon_icon_iv"
-            app:layout_constraintTop_toBottomOf="@+id/moon_icon_iv"
-            app:srcCompat="@drawable/ic_arrow_upward_black_24dp" />
-
-        <TextView
-            android:id="@+id/sun_rise_time_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_constraintBottom_toTopOf="@+id/sun_rise_iv"
-            app:layout_constraintEnd_toStartOf="@+id/sun_set_iv"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/sun_rise_iv"
-            app:layout_constraintTop_toBottomOf="@+id/sun_rise_iv"
-            tools:text="@tools:sample/date/hhmm" />
-
-        <TextView
-            android:id="@+id/moon_rise_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_constraintBottom_toTopOf="@+id/moon_rise_iv"
-            app:layout_constraintEnd_toStartOf="@+id/moon_set_iv"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/moon_rise_iv"
-            app:layout_constraintTop_toBottomOf="@+id/moon_rise_iv"
-            tools:text="@tools:sample/date/hhmm" />
-
-        <android.support.v7.widget.AppCompatImageView
-            android:id="@+id/sun_set_iv"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:contentDescription="@string/sun_set"
-            android:tint="#e6ae5d"
-            app:layout_constraintBottom_toTopOf="@+id/sun_rise_time_tv"
-            app:layout_constraintEnd_toStartOf="@+id/sun_set_time_tv"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/sun_rise_time_tv"
-            app:layout_constraintTop_toBottomOf="@+id/sun_rise_time_tv"
-            app:srcCompat="@drawable/ic_arrow_downward_black_24dp" />
-
-        <android.support.v7.widget.AppCompatImageView
-            android:id="@+id/moon_set_iv"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:contentDescription="@string/moon_set"
-            android:tint="#6eabe4"
-            app:layout_constraintBottom_toTopOf="@+id/moon_rise_tv"
-            app:layout_constraintEnd_toStartOf="@+id/moon_set_time_tv"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/moon_rise_tv"
-            app:layout_constraintTop_toBottomOf="@+id/moon_rise_tv"
-            app:srcCompat="@drawable/ic_arrow_downward_black_24dp" />
-
-        <TextView
-            android:id="@+id/sun_set_time_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_constraintBottom_toTopOf="@+id/sun_set_iv"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/sun_set_iv"
-            app:layout_constraintTop_toBottomOf="@+id/sun_set_iv"
-            tools:text="@tools:sample/date/hhmm" />
-
-        <TextView
-            android:id="@+id/moon_set_time_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_constraintBottom_toTopOf="@+id/moon_set_iv"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/moon_set_iv"
-            app:layout_constraintTop_toBottomOf="@+id/moon_set_iv"
-            tools:text="@tools:sample/date/hhmm" />
-
-        <TextView
-            android:id="@+id/date_tv"
-            android:layout_width="wrap_content"
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/data_container"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/moon_icon_iv"
-            tools:text="@tools:sample/date/ddmmyy" />
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent">
 
-        <android.support.v7.widget.AppCompatImageButton
-            android:id="@+id/previous_date_ib"
-            style="@style/Base.Widget.AppCompat.Button.Borderless"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:contentDescription="@string/previous_date_button"
-            app:layout_constraintEnd_toStartOf="@+id/reset_date_ib"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/date_tv"
-            app:srcCompat="@drawable/ic_skip_previous_black_24dp" />
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/sun_icon_iv"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="8dp"
+                android:contentDescription="@string/sun"
+                app:layout_constraintEnd_toStartOf="@+id/sun_rise_iv"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_wb_sunny_black_24dp" />
 
-        <android.support.v7.widget.AppCompatImageButton
-            android:id="@+id/reset_date_ib"
-            style="@style/Base.Widget.AppCompat.Button.Borderless"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/reset_date"
-            app:layout_constraintEnd_toStartOf="@+id/next_date_ib"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/previous_date_ib"
-            app:layout_constraintTop_toTopOf="@+id/previous_date_ib"
-            app:srcCompat="@drawable/ic_replay_black_24dp" />
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/moon_icon_iv"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="8dp"
+                android:contentDescription="@string/moon"
+                android:padding="4dp"
+                app:layout_constraintEnd_toStartOf="@+id/moon_rise_iv"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sun_icon_iv"
+                app:srcCompat="@drawable/ic_moon_phase_outline" />
 
-        <android.support.v7.widget.AppCompatImageButton
-            android:id="@+id/next_date_ib"
-            style="@style/Base.Widget.AppCompat.Button.Borderless"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/next_date_button"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/reset_date_ib"
-            app:layout_constraintTop_toTopOf="@+id/reset_date_ib"
-            app:srcCompat="@drawable/ic_skip_next_black_24dp" />
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/sun_rise_iv"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:contentDescription="@string/sun_rise"
+                android:tint="#FF9700"
+                app:layout_constraintBottom_toTopOf="@+id/sun_icon_iv"
+                app:layout_constraintEnd_toStartOf="@+id/sun_rise_time_tv"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/sun_icon_iv"
+                app:layout_constraintTop_toBottomOf="@+id/sun_icon_iv"
+                app:srcCompat="@drawable/ic_arrow_upward_black_24dp" />
+
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/moon_rise_iv"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:contentDescription="@string/moon_rise"
+                android:tint="#007ff5"
+                app:layout_constraintBottom_toTopOf="@+id/moon_icon_iv"
+                app:layout_constraintEnd_toStartOf="@+id/moon_rise_tv"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/moon_icon_iv"
+                app:layout_constraintTop_toBottomOf="@+id/moon_icon_iv"
+                app:srcCompat="@drawable/ic_arrow_upward_black_24dp" />
+
+            <TextView
+                android:id="@+id/sun_rise_time_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintBottom_toTopOf="@+id/sun_rise_iv"
+                app:layout_constraintEnd_toStartOf="@+id/sun_set_iv"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/sun_rise_iv"
+                app:layout_constraintTop_toBottomOf="@+id/sun_rise_iv"
+                tools:text="@tools:sample/date/hhmm" />
+
+            <TextView
+                android:id="@+id/moon_rise_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintBottom_toTopOf="@+id/moon_rise_iv"
+                app:layout_constraintEnd_toStartOf="@+id/moon_set_iv"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/moon_rise_iv"
+                app:layout_constraintTop_toBottomOf="@+id/moon_rise_iv"
+                tools:text="@tools:sample/date/hhmm" />
+
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/sun_set_iv"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:contentDescription="@string/sun_set"
+                android:tint="#e6ae5d"
+                app:layout_constraintBottom_toTopOf="@+id/sun_rise_time_tv"
+                app:layout_constraintEnd_toStartOf="@+id/sun_set_time_tv"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/sun_rise_time_tv"
+                app:layout_constraintTop_toBottomOf="@+id/sun_rise_time_tv"
+                app:srcCompat="@drawable/ic_arrow_downward_black_24dp" />
+
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/moon_set_iv"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:contentDescription="@string/moon_set"
+                android:tint="#6eabe4"
+                app:layout_constraintBottom_toTopOf="@+id/moon_rise_tv"
+                app:layout_constraintEnd_toStartOf="@+id/moon_set_time_tv"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/moon_rise_tv"
+                app:layout_constraintTop_toBottomOf="@+id/moon_rise_tv"
+                app:srcCompat="@drawable/ic_arrow_downward_black_24dp" />
+
+            <TextView
+                android:id="@+id/sun_set_time_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintBottom_toTopOf="@+id/sun_set_iv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/sun_set_iv"
+                app:layout_constraintTop_toBottomOf="@+id/sun_set_iv"
+                tools:text="@tools:sample/date/hhmm" />
+
+            <TextView
+                android:id="@+id/moon_set_time_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintBottom_toTopOf="@+id/moon_set_iv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/moon_set_iv"
+                app:layout_constraintTop_toBottomOf="@+id/moon_set_iv"
+                tools:text="@tools:sample/date/hhmm" />
+
+            <TextView
+                android:id="@+id/date_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/moon_icon_iv"
+                tools:text="@tools:sample/date/ddmmyy" />
+
+            <android.support.v7.widget.AppCompatImageButton
+                android:id="@+id/previous_date_ib"
+                style="@style/Base.Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:contentDescription="@string/previous_date_button"
+                app:layout_constraintEnd_toStartOf="@+id/reset_date_ib"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/date_tv"
+                app:srcCompat="@drawable/ic_skip_previous_black_24dp" />
+
+            <android.support.v7.widget.AppCompatImageButton
+                android:id="@+id/reset_date_ib"
+                style="@style/Base.Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/reset_date"
+                app:layout_constraintEnd_toStartOf="@+id/next_date_ib"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/previous_date_ib"
+                app:layout_constraintTop_toTopOf="@+id/previous_date_ib"
+                app:srcCompat="@drawable/ic_replay_black_24dp" />
+
+            <android.support.v7.widget.AppCompatImageButton
+                android:id="@+id/next_date_ib"
+                style="@style/Base.Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/next_date_button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/reset_date_ib"
+                app:layout_constraintTop_toTopOf="@+id/reset_date_ib"
+                app:srcCompat="@drawable/ic_skip_next_black_24dp" />
 
 
+        </android.support.constraint.ConstraintLayout>
     </android.support.constraint.ConstraintLayout>
-</android.support.constraint.ConstraintLayout>
+</layout>
