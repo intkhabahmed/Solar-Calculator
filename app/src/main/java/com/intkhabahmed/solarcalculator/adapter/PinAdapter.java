@@ -31,6 +31,7 @@ public class PinAdapter extends RecyclerView.Adapter<PinAdapter.PinViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull PinViewHolder pinViewHolder, int i) {
         PinInfo pinInfo = mPins.get(pinViewHolder.getAdapterPosition());
+        pinViewHolder.itemView.setTag(pinInfo.getId());
         pinViewHolder.placeNameTv.setText(pinInfo.getPlaceName() == null ? "Unknown" : pinInfo.getPlaceName());
         pinViewHolder.latitudeTv.setText(String.valueOf(pinInfo.getLatitude()));
         pinViewHolder.longitudeTv.setText(String.valueOf(pinInfo.getLongitude()));

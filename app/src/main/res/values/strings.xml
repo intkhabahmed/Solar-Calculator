@@ -16,4 +16,5 @@
     <string name="need_location_permission_message">ou need to enable location permissions first</string>
     <string name="empty_message">No Pinned Locations!!</string>
     <string name="pin_success">Pin Location saved successfully!!</string>
+    <string name="pin_deleted">Pin Location deleted successfully!!</string>
 </resources>
