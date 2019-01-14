@@ -9,15 +9,20 @@ import android.arch.persistence.room.Query;
 
 import com.intkhabahmed.solarcalculator.model.PinInfo;
 
+import java.util.List;
+
 @Dao
 public interface PinDao {
 
     @Query("SELECT * FROM pins")
-    LiveData<PinInfo> getAllPins();
+    LiveData<List<PinInfo>> getAllPins();
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insertPin(PinInfo info);
 
     @Delete
     void deletePin(PinInfo info);
+
+    @Query("SELECT * FROM pins WHERE id = :id")
+    LiveData<PinInfo> getPinById(int id);
 }

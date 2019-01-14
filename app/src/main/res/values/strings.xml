@@ -12,4 +12,8 @@
     <string name="next_date_button">select next date</string>
     <string name="save_pin">Save Pin</string>
     <string name="saved_pins">Saved Pins</string>
+    <string name="search">Search</string>
+    <string name="need_location_permission_message">ou need to enable location permissions first</string>
+    <string name="empty_message">No Pinned Locations!!</string>
+    <string name="pin_success">Pin Location saved successfully!!</string>
 </resources>

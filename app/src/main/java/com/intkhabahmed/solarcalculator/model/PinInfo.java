@@ -1,6 +1,5 @@
 package com.intkhabahmed.solarcalculator.model;
 
-import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
@@ -9,6 +8,9 @@ import android.os.Parcelable;
 
 @Entity(tableName = "pins")
 public class PinInfo implements Parcelable {
+
+    @PrimaryKey(autoGenerate = true)
+    private int id;
     public static final Creator<PinInfo> CREATOR = new Creator<PinInfo>() {
         @Override
         public PinInfo createFromParcel(Parcel in) {
@@ -20,30 +22,34 @@ public class PinInfo implements Parcelable {
             return new PinInfo[size];
         }
     };
-    @PrimaryKey(autoGenerate = true)
-    private int id;
-    @ColumnInfo(name = "place_name")
+    private double latitude;
     private String placeName;
-    @ColumnInfo(name = "place_id")
-    private String placeId;
+    private double longitude;
 
     @Ignore
-    public PinInfo(String placeName, String placeId) {
-        this.placeName = placeName;
-        this.placeId = placeId;
+    public PinInfo() {
     }
 
-    public PinInfo(int id, String placeName, String placeId) {
+    public PinInfo(int id, double latitude, double longitude, String placeName) {
         this.id = id;
+        this.latitude = latitude;
+        this.longitude = longitude;
         this.placeName = placeName;
-        this.placeId = placeId;
+    }
+
+    @Ignore
+    public PinInfo(double latitude, double longitude, String placeName) {
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.placeName = placeName;
     }
 
     @Ignore
     private PinInfo(Parcel in) {
         id = in.readInt();
+        latitude = in.readDouble();
+        longitude = in.readDouble();
         placeName = in.readString();
-        placeId = in.readString();
     }
 
     public int getId() {
@@ -54,6 +60,22 @@ public class PinInfo implements Parcelable {
         this.id = id;
     }
 
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
+
     public String getPlaceName() {
         return placeName;
     }
@@ -62,13 +84,6 @@ public class PinInfo implements Parcelable {
         this.placeName = placeName;
     }
 
-    public String getPlaceId() {
-        return placeId;
-    }
-
-    public void setPlaceId(String placeId) {
-        this.placeId = placeId;
-    }
 
     @Override
     public int describeContents() {
@@ -78,7 +93,8 @@ public class PinInfo implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(id);
+        dest.writeDouble(latitude);
+        dest.writeDouble(longitude);
         dest.writeString(placeName);
-        dest.writeString(placeId);
     }
 }
